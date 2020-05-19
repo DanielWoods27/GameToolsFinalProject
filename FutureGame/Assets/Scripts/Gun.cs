@@ -6,6 +6,8 @@ public class Gun : MonoBehaviour
     public float damage = 10f;
     public float range = 100f;
     public Camera fpsCam;
+ 
+    
 
     // Update is called once per frame
     void Update()
@@ -13,11 +15,14 @@ public class Gun : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
+            GetComponent<AudioSource>().Play(); 
         }
 
     }
     void Shoot()
     {
+        
+
         RaycastHit hit;
        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
